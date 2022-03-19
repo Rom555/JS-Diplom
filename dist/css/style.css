@@ -9106,12 +9106,16 @@ strong {
   display: none;
 }
 
-.header-contacts__phone-number-accord.show {
+.header-contacts__phone-number-accord.show-number {
   top: 25px;
 }
-.header-contacts__phone-number-accord.show a {
+.header-contacts__phone-number-accord.show-number a {
   opacity: 1;
 }
 .header-contacts__arrow.rotate {
   transform: rotateX(180deg);
+}
+
+.popup-dialog-menu.show-menu {
+  transform: none;
 }

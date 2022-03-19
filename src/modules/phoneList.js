@@ -5,7 +5,7 @@ export const phone = () => {
   const btn = document.querySelector('.header-contacts__arrow');
 
   const toggle = () => {
-    numberBlock.classList.toggle('show');
+    numberBlock.classList.toggle('show-number');
     btn.classList.toggle('rotate');
   };
 
