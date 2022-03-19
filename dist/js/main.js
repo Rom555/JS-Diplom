@@ -1,1 +1,1 @@
-console.log("1");
+(()=>{"use strict";(()=>{const e=document.querySelector(".header-contacts__phone-number-accord"),t=document.querySelector(".header-contacts__arrow");t.addEventListener("click",(()=>{e.classList.toggle("show"),t.classList.toggle("rotate")}))})()})();

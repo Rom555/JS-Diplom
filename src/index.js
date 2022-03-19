@@ -1,1 +1,3 @@
-console.log('1');
+import { phone } from './modules/phoneList';
+
+phone();
