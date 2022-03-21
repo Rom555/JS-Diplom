@@ -9118,7 +9118,6 @@ strong {
 
 .popup {
   opacity: 0;
-  transition: opacity 1s;
 }
 .popup.popup-show {
   visibility: visible;

@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_phoneList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/phoneList */ \"./modules/phoneList.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scroll */ \"./modules/scroll.js\");\n\r\n\r\n\r\n// import { modal } from './modules/modal';\r\n\r\n(0,_modules_phoneList__WEBPACK_IMPORTED_MODULE_0__.phone)();\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)();\r\n(0,_modules_scroll__WEBPACK_IMPORTED_MODULE_2__.scroll)();\r\n// modal();\r\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_phoneList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/phoneList */ \"./modules/phoneList.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scroll */ \"./modules/scroll.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n\r\n\r\n\r\n\r\n\r\n(0,_modules_phoneList__WEBPACK_IMPORTED_MODULE_0__.phone)();\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)();\r\n(0,_modules_scroll__WEBPACK_IMPORTED_MODULE_2__.scroll)();\r\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_3__.modal)();\r\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -37,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"menu\": () => (/* binding */ menu)\n/* harmony export */ });\nconst menu = () => {\r\n  const menu = document.querySelector('.popup-menu');\r\n\r\n  const toggleMenu = () => {\r\n    menu.classList.toggle('popup-show');\r\n  };\r\n\r\n  document.addEventListener('click', (e) => {\r\n    if (\r\n      e.target.closest('.menu__icon') ||\r\n      e.target.classList.contains('close-menu') ||\r\n      (e.target.closest('.popup-dialog-menu') && e.target.tagName === 'A') ||\r\n      (menu.classList.contains('popup-show') &&\r\n        !e.target.closest('.popup-dialog-menu'))\r\n    ) {\r\n      e.preventDefault();\r\n      toggleMenu();\r\n    }\r\n  });\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/menu.js?");
+
+/***/ }),
+
+/***/ "./modules/modal.js":
+/*!**************************!*\
+  !*** ./modules/modal.js ***!
+  \**************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"modal\": () => (/* binding */ modal)\n/* harmony export */ });\nconst modal = () => {\r\n  const popups = document.querySelectorAll('.popup');\r\n\r\n  const showPopup = (e, popupSelector) => {\r\n    e.preventDefault();\r\n\r\n    let popup = document.querySelector(popupSelector);\r\n\r\n    popup.classList.add('popup-show');\r\n  };\r\n\r\n  const closeAllPopups = () => {\r\n    popups.forEach((popup) => {\r\n      popup.classList.remove('popup-show');\r\n    });\r\n  };\r\n\r\n  document.addEventListener('click', (e) => {\r\n    if (\r\n      (!e.target.closest('popup-dialog') || e.target.closest('.close')) &&\r\n      e.target.closest('.popup-show')\r\n    ) {\r\n      e.preventDefault();\r\n\r\n      closeAllPopups();\r\n    } else if (e.target.closest('.link-list') && e.target.tagName === 'A') {\r\n      showPopup(e, '.popup-repair-types');\r\n    } else if (e.target.classList.contains('link-privacy')) {\r\n      showPopup(e, '.popup-privacy');\r\n    }\r\n  });\r\n\r\n  popups.forEach((popup) => {\r\n    popup.style.transition = '1s';\r\n  });\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/modal.js?");
 
 /***/ }),
 
