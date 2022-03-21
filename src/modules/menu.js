@@ -1,8 +1,8 @@
 export const menu = () => {
-  const menu = document.querySelector('.popup-dialog-menu');
+  const menu = document.querySelector('.popup-menu');
 
   const toggleMenu = () => {
-    menu.classList.toggle('show-menu');
+    menu.classList.toggle('popup-show');
   };
 
   document.addEventListener('click', (e) => {
@@ -10,7 +10,7 @@ export const menu = () => {
       e.target.closest('.menu__icon') ||
       e.target.classList.contains('close-menu') ||
       (e.target.closest('.popup-dialog-menu') && e.target.tagName === 'A') ||
-      (menu.classList.contains('show-menu') &&
+      (menu.classList.contains('popup-show') &&
         !e.target.closest('.popup-dialog-menu'))
     ) {
       e.preventDefault();

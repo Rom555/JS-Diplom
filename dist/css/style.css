@@ -9116,6 +9116,15 @@ strong {
   transform: rotateX(180deg);
 }
 
-.popup-dialog-menu.show-menu {
+.popup {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.popup.popup-show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup.popup-show .popup-dialog-menu {
   transform: none;
 }
