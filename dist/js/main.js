@@ -16,7 +16,7 @@
   \******************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_phoneList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/phoneList */ \"./modules/phoneList.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scroll */ \"./modules/scroll.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n\r\n\r\n\r\n\r\n\r\n(0,_modules_phoneList__WEBPACK_IMPORTED_MODULE_0__.phone)();\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)();\r\n(0,_modules_scroll__WEBPACK_IMPORTED_MODULE_2__.scroll)();\r\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_3__.modal)();\r\n\n\n//# sourceURL=webpack:///./index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_phoneList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/phoneList */ \"./modules/phoneList.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./modules/menu.js\");\n/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scroll */ \"./modules/scroll.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ \"./modules/modal.js\");\n/* harmony import */ var _modules_phoneMask__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/phoneMask */ \"./modules/phoneMask.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_modules_phoneList__WEBPACK_IMPORTED_MODULE_0__.phone)();\r\n(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__.menu)();\r\n(0,_modules_scroll__WEBPACK_IMPORTED_MODULE_2__.scroll)();\r\n(0,_modules_modal__WEBPACK_IMPORTED_MODULE_3__.modal)();\r\n(0,_modules_phoneMask__WEBPACK_IMPORTED_MODULE_4__.phoneMask)();\r\n\n\n//# sourceURL=webpack:///./index.js?");
 
 /***/ }),
 
@@ -57,6 +57,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"phone\": () => (/* binding */ phone)\n/* harmony export */ });\nconst phone = () => {\r\n  const numberBlock = document.querySelector(\r\n    '.header-contacts__phone-number-accord'\r\n  );\r\n  const btn = document.querySelector('.header-contacts__arrow');\r\n\r\n  const toggle = () => {\r\n    numberBlock.classList.toggle('show-number');\r\n    btn.classList.toggle('rotate');\r\n  };\r\n\r\n  btn.addEventListener('click', toggle);\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/phoneList.js?");
+
+/***/ }),
+
+/***/ "./modules/phoneMask.js":
+/*!******************************!*\
+  !*** ./modules/phoneMask.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"phoneMask\": () => (/* binding */ phoneMask)\n/* harmony export */ });\nconst phoneMask = () => {\r\n  const phoneInputs = document.querySelectorAll('input[name=phone]');\r\n\r\n  const mask = (value) => {\r\n    value = value.replace(/\\D/g, '');\r\n\r\n    value = value.replace(\r\n      /(7)(\\d{0,3})(\\d{0,3})(\\d{0,2})(\\d{0,2})(.*)/,\r\n      (str, $1, $2, $3, $4, $5, $6) => {\r\n        str = '+7 (';\r\n\r\n        if (!$2) return str;\r\n        str += $2;\r\n        if (!$3) return str;\r\n        str += ') ' + $3;\r\n        if (!$4) return str;\r\n        str += '-' + $4;\r\n        if (!$5) return str;\r\n        str += '-' + $5;\r\n\r\n        return str;\r\n      }\r\n    );\r\n\r\n    return value;\r\n  };\r\n\r\n  phoneInputs.forEach((input) => {\r\n    input.addEventListener('input', () => {\r\n      input.value = mask(input.value);\r\n    });\r\n    input.addEventListener('focus', () => {\r\n      if (!input.value) {\r\n        input.value = '+7 (';\r\n      }\r\n    });\r\n    input.addEventListener('blur', () => {\r\n      if (input.value === '+7 (') {\r\n        input.value = '';\r\n      }\r\n    });\r\n  });\r\n};\r\n\n\n//# sourceURL=webpack:///./modules/phoneMask.js?");
 
 /***/ }),
 
