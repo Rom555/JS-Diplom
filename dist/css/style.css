@@ -8123,6 +8123,7 @@ div.wave-block:nth-child(17):after {
 .active-item {
   font-size: 20px;
   opacity: 1;
+  z-index: 2;
 }
 
 .active-item .formula-item__icon {
@@ -8176,7 +8177,7 @@ div.wave-block:nth-child(17):after {
   background: linear-gradient(90deg, #f48922 0%, #ffb015 100%);
 }
 
-.active-item .formula-item__icon span {
+.active-item .formula-item__icon-inner-textformula-item-popup {
   color: #ffffff;
 }
 
@@ -9126,4 +9127,20 @@ strong {
 
 .popup.popup-show .popup-dialog-menu {
   transform: none;
+}
+
+.formula-item-popup.reflect {
+  bottom: 0;
+  top: 90px;
+  padding-top: 40px;
+}
+.formula-item-popup.reflect::before {
+  transform: rotateX(180deg);
+}
+
+.slider-slide {
+  display: none;
+}
+.slider-slide-active-flex {
+  display: flex;
 }
