@@ -22,8 +22,18 @@ export const slider = ({
     elems[index].classList.add(strClass);
   };
 
+  const init = () => {
+    slides.forEach((slide) => {
+      slide.classList.add('slider-slide');
+    });
+
+    slides[0].classList.add(slideActiveClass);
+  };
+
   sliderBlock.addEventListener('click', (e) => {
     e.preventDefault();
+
+    console.log(!e.target.closest(`.${btnNextClass}`) && !e.target.closest(`.${btnPrevClass}`));
 
     if (!e.target.closest(`.${btnNextClass}`) && !e.target.closest(`.${btnPrevClass}`)) {
       return;
@@ -31,9 +41,9 @@ export const slider = ({
 
     prevSlide(slides, currentSlide, slideActiveClass);
 
-    if (e.target.matches(`.${btnNextClass}`)) {
+    if (e.target.closest(`.${btnNextClass}`)) {
       currentSlide++;
-    } else if (e.target.matches(`.${btnPrevClass}`)) {
+    } else if (e.target.closest(`.${btnPrevClass}`)) {
       currentSlide--;
     }
 
@@ -47,9 +57,5 @@ export const slider = ({
     nextSlide(slides, currentSlide, slideActiveClass);
   });
 
-  slides.forEach((slide) => {
-    slide.classList.add('slider-slide');
-  });
-
-  slides[0].classList.add(slideActiveClass);
+  init();
 };
