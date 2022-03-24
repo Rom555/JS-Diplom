@@ -33,8 +33,6 @@ export const slider = ({
   sliderBlock.addEventListener('click', (e) => {
     e.preventDefault();
 
-    console.log(!e.target.closest(`.${btnNextClass}`) && !e.target.closest(`.${btnPrevClass}`));
-
     if (!e.target.closest(`.${btnNextClass}`) && !e.target.closest(`.${btnPrevClass}`)) {
       return;
     }
