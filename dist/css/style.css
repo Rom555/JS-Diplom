@@ -1751,7 +1751,7 @@ template,
   }
 
   .repair-types-nav__item:first-child svg {
-    width: 205px;
+    width: 186px;
   }
 }
 
@@ -7292,7 +7292,7 @@ div.wave-block:nth-child(17):after {
 }
 
 .nav-list-repair {
-  min-width: 390px;
+  min-width: 100%;
   display: block;
 }
 
@@ -7304,12 +7304,6 @@ div.wave-block:nth-child(17):after {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     max-width: 100%;
-  }
-}
-
-@media (max-width: 575px) {
-  .nav-list-repair {
-    min-width: 1086px;
   }
 }
 
