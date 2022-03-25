@@ -16,14 +16,6 @@ export const repairTypes = () => {
     sliders[sliderNumber - 1].style.display = '';
   };
 
-  const mobileToggle = () => {
-    if (document.documentElement.clientWidth < 1024 && !repairNavSlider.enable) {
-      repairNavSlider.init();
-    } else if (document.documentElement.clientWidth > 1024 && repairNavSlider.enable) {
-      repairNavSlider.disable();
-    }
-  };
-
   navWrap.addEventListener('click', (e) => {
     if (e.target.closest('.repair-types-nav__item')) {
       e.preventDefault();
@@ -42,8 +34,6 @@ export const repairTypes = () => {
     }
   });
 
-  window.addEventListener('resize', mobileToggle);
-
   repairSlider = slider({
     sliderWrapperSelector: '.repair-types-slider-wrap',
     slidesSelector: '.types-repair1 .repair-types-slider__slide',
@@ -59,5 +49,5 @@ export const repairTypes = () => {
   });
 
   sliderToggle();
-  mobileToggle();
+  repairNavSlider.mobile();
 };

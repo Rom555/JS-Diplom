@@ -20,7 +20,8 @@ export const modal = () => {
       (!(
         e.target.closest('.popup-dialog') ||
         e.target.closest('.popup-dialog-menu') ||
-        e.target.closest('.popup-dialog-transparency')
+        e.target.closest('.popup-dialog-transparency') ||
+        e.target.closest('.feedback-wrap')
       ) ||
         e.target.closest('.close')) &&
       e.target.closest('.popup-show')
@@ -34,6 +35,8 @@ export const modal = () => {
       showPopup(e, '.popup-privacy');
     } else if (e.target.classList.contains('transparency-item__img')) {
       showPopup(e, '.popup-transparency');
+    } else if (e.target.tagName === 'BUTTON' && e.target.textContent.trim() === 'Проконсультироваться') {
+      showPopup(e, '.popup-consultation');
     }
   });
 
