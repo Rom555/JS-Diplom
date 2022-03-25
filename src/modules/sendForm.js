@@ -23,9 +23,13 @@ export const sendForm = () => {
           }
           break;
         case input.name === 'name':
-          if (/[^а-я\s]/gi.test(input.value) || !input.value) {
+          if (/[^а-я\s]/gi.test(input.value)) {
             success = false;
             validateErrorText = 'Неправильно заполнено имя!';
+          }
+          if (input.value.length < 2) {
+            success = false;
+            validateErrorText = 'В имени должно быть минимум 2 символа';
           }
           break;
         case input.name === 'phone':

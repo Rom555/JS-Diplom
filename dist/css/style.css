@@ -4556,7 +4556,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 575px) {
   .msg-active ~ .msg {
-    max-height: 300px;
+    /* max-height: 300px; */
   }
 
   .msg-active ~ .msg ~ .accordion-more {
