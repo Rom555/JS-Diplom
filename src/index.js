@@ -7,6 +7,7 @@ import { advantages } from './modules/advantages';
 import { slider } from './modules/slider';
 import { repairTypes } from './modules/repairTypes';
 import { transparency } from './modules/transparency';
+import { accordion } from './modules/accordion';
 
 phone();
 menu();
@@ -24,3 +25,4 @@ slider({
   sliderWrapperSelector: '.reviews-slider-wrap',
   slidesSelector: '.reviews-slider__slide',
 });
+accordion();
