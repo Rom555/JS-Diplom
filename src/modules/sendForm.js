@@ -4,10 +4,12 @@ export const sendForm = () => {
   const forms = document.querySelectorAll('form');
   const loadContent = 'Загрузка...';
   const errorText = 'Ошибка!';
-  const successText = 'Спасибо! Наш менеджер с Вами свяжется.';
   let validateErrorText = 'Неправильно заполнены поля!';
 
-  let timeout;
+  const openThank = () => {
+    document.querySelector('.popup-consultation').classList.remove('popup-show');
+    document.querySelector('.popup-thank').classList.add('popup-show');
+  };
 
   const validate = (list) => {
     let success = true;
@@ -43,8 +45,6 @@ export const sendForm = () => {
     const formData = new FormData(form);
     const formBody = {};
 
-    clearTimeout(timeout);
-
     if (form.id !== 'feedback3' && form.id !== 'feedback1' && form.id !== 'feedback6') {
       statusBlock.style.color = '#fff';
       statusBlock.style.marginBottom = '20px';
@@ -68,7 +68,7 @@ export const sendForm = () => {
       body: formBody,
     })
       .then((data) => {
-        statusBlock.textContent = successText;
+        statusBlock.textContent = '';
 
         formElements.forEach((input) => {
           input.value = '';
@@ -76,7 +76,7 @@ export const sendForm = () => {
           if (input.type === 'checkbox') input.checked = false;
         });
 
-        timeout = setTimeout(() => (statusBlock.textContent = ''), 5000);
+        openThank();
       })
       .catch((error) => {
         statusBlock.textContent = errorText;
