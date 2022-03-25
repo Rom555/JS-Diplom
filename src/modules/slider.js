@@ -122,6 +122,9 @@ export const slider = ({
     },
   };
 
+  sliderBlock.querySelector(btnNextSelector).style.userSelect = 'none';
+  sliderBlock.querySelector(btnPrevSelector).style.userSelect = 'none';
+
   sliderObj.init();
 
   return sliderObj;
