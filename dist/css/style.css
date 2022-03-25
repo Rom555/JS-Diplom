@@ -7298,7 +7298,6 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 1024px) {
   .nav-list-repair {
-    min-width: 1200px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -9143,4 +9142,14 @@ strong {
 }
 .slider-slide-active-flex {
   display: flex;
+}
+.repair-slide-active {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 100% !important;
+  margin: auto 0 !important;
+}
+.repair-slide-active svg {
+  left: auto;
 }

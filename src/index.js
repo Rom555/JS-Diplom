@@ -5,6 +5,7 @@ import { modal } from './modules/modal';
 import { phoneMask } from './modules/phoneMask';
 import { advantages } from './modules/advantages';
 import { slider } from './modules/slider';
+import { repairTypes } from './modules/repairTypes';
 
 phone();
 menu();
@@ -13,8 +14,7 @@ modal();
 phoneMask();
 advantages();
 slider({
-  sliderWrapperClass: 'formula-slider-wrap',
-  slidesClass: 'formula-slider__slide',
-  btnNextClass: 'slider-arrow_right',
-  btnPrevClass: 'slider-arrow_left',
+  sliderWrapperSelector: '.formula-slider-wrap',
+  slidesSelector: '.formula-slider__slide',
 });
+repairTypes();
