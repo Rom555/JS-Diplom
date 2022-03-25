@@ -1,18 +1,34 @@
 import { getData } from './helper';
+import { slider } from './slider';
 
 export const repairPrices = () => {
   const navWrap = document.querySelector('.nav-list-popup-repair');
   const headTitle = document.querySelector('.popup-repair-types-content__head-title');
   const tbody = document.querySelector('.popup-repair-types-content-table tbody');
 
-  const renderTable = (type) => {
-    getData(`http://localhost:4545/prices?type=${type}`).then((data) => {
-      tbody.textContent = '';
+  let navSlider;
 
-      data.forEach((elem) => {
-        tbody.insertAdjacentHTML(
-          'beforeend',
-          `
+  const sliderInit = () => {
+    navSlider = slider({
+      sliderWrapperSelector: '.popup-repair-types .nav-wrap-repair',
+      slidesSelector: '.popup-repair-types-nav__item',
+      slideActiveClass: 'repair-slide-active-inline',
+      btnNextSelector: '.nav-arrow_right',
+      btnPrevSelector: '.nav-arrow_left',
+    });
+
+    navSlider.mobile(1024);
+  };
+
+  const renderTable = (type) => {
+    getData(`http://localhost:4545/prices?type=${type}`)
+      .then((data) => {
+        tbody.textContent = '';
+
+        data.forEach((elem) => {
+          tbody.insertAdjacentHTML(
+            'beforeend',
+            `
             <tr class="mobile-row showHide">
             <td class="repair-types-name">
                 ${elem.name}
@@ -27,9 +43,10 @@ export const repairPrices = () => {
             <td class="repair-types-value">${elem.cost} руб.</td>
             </tr>
           `
-        );
-      });
-    });
+          );
+        });
+      })
+      .catch((error) => console.log(error));
   };
 
   const renderBtns = (btnsText) => {
@@ -46,19 +63,22 @@ export const repairPrices = () => {
   };
 
   const getTableData = () => {
-    getData('http://localhost:4545/prices').then((data) => {
-      let btnsText = [];
+    getData('http://localhost:4545/prices')
+      .then((data) => {
+        let btnsText = [];
 
-      data.forEach((elem) => {
-        if (!btnsText.includes(elem.type)) {
-          btnsText.push(elem.type);
-        }
-      });
+        data.forEach((elem) => {
+          if (!btnsText.includes(elem.type)) {
+            btnsText.push(elem.type);
+          }
+        });
 
-      navWrap.textContent = '';
-      renderBtns(btnsText);
-      renderTable(btnsText[0]);
-    });
+        navWrap.textContent = '';
+        renderBtns(btnsText);
+        renderTable(btnsText[0]);
+      })
+      .catch((error) => console.log(error.message))
+      .finally(sliderInit());
   };
 
   navWrap.addEventListener('click', (e) => {
@@ -67,7 +87,9 @@ export const repairPrices = () => {
 
       headTitle.textContent = e.target.textContent.trim();
       renderTable(e.target.textContent.trim());
+      document.querySelector('.popup-repair-types-content-table').scrollTop = 0;
     }
   });
+
   getTableData();
 };

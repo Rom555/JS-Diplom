@@ -7315,19 +7315,13 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 1024px) {
   .nav-list-popup-repair {
-    min-width: 3130px;
+    min-width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     max-width: 100%;
-  }
-}
-
-@media (max-width: 575px) {
-  .nav-list-popup-repair {
-    min-width: 2840px;
   }
 }
 
@@ -9146,4 +9140,8 @@ strong {
 }
 .repair-slide-active svg {
   left: auto;
+}
+.repair-slide-active-inline {
+  margin: 0 auto;
+  display: inline-block;
 }

@@ -29,4 +29,4 @@ slider({
 });
 accordion();
 sendForm();
-//repairPrices();
+repairPrices();
