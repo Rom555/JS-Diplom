@@ -6,6 +6,7 @@ import { phoneMask } from './modules/phoneMask';
 import { advantages } from './modules/advantages';
 import { slider } from './modules/slider';
 import { repairTypes } from './modules/repairTypes';
+import { transparency } from './modules/transparency';
 
 phone();
 menu();
@@ -18,3 +19,4 @@ slider({
   slidesSelector: '.formula-slider__slide',
 });
 repairTypes();
+transparency();

@@ -73,6 +73,22 @@ export const slider = ({
         counterCurrent.textContent = sliderObj.currentSlide + 1;
       }
     },
+    mobileToggle: function (width) {
+      if (document.documentElement.clientWidth < width && !sliderObj.enable) {
+        sliderObj.init();
+      } else if (document.documentElement.clientWidth > width && sliderObj.enable) {
+        sliderObj.disable();
+      }
+    },
+    mobile: function (width) {
+      window.addEventListener('resize', () => {
+        this.mobileToggle(width);
+      });
+
+      this.disable();
+
+      this.mobileToggle(width);
+    },
     disable: function () {
       sliderBlock.removeEventListener('click', this.slideChange);
 
@@ -83,6 +99,17 @@ export const slider = ({
       });
 
       this.enable = false;
+    },
+    renderSlide: function (number) {
+      prevSlide(this.slides, this.currentSlide, slideActiveClass);
+
+      this.currentSlide = number;
+
+      nextSlide(this.slides, this.currentSlide, slideActiveClass);
+
+      if (sliderCounterSelector) {
+        counterCurrent.textContent = sliderObj.currentSlide + 1;
+      }
     },
     init: function () {
       this.slidesInit(slidesSelector);
