@@ -20,3 +20,7 @@ slider({
 });
 repairTypes();
 transparency();
+slider({
+  sliderWrapperSelector: '.reviews-slider-wrap',
+  slidesSelector: '.reviews-slider__slide',
+});
