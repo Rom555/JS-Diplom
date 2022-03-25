@@ -8,8 +8,6 @@ export const accordion = () => {
     if (e.target.classList.contains('title_block')) {
       e.preventDefault();
 
-      console.log(e.target);
-
       if (!e.target.classList.contains('msg-active')) {
         clearTimeout(timeout);
 
