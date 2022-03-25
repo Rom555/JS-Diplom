@@ -8,6 +8,7 @@ import { slider } from './modules/slider';
 import { repairTypes } from './modules/repairTypes';
 import { transparency } from './modules/transparency';
 import { accordion } from './modules/accordion';
+import { sendForm } from './modules/sendForm';
 
 phone();
 menu();
@@ -26,3 +27,4 @@ slider({
   slidesSelector: '.reviews-slider__slide',
 });
 accordion();
+sendForm();

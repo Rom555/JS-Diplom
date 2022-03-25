@@ -16,3 +16,31 @@ export const animate = ({ timing, draw, duration }) => {
     }
   });
 };
+
+export const getData = (url) => {
+  return fetch(url)
+    .then((res) => {
+      if (res.ok) return res.json();
+      throw new Error(`${res.status} ${res.statusText}`);
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+export const sendData = (url, data) => {
+  return fetch(url, {
+    method: data.method,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: data.body ? JSON.stringify(data.body) : '',
+  })
+    .then((res) => {
+      if (res.ok) return res.json();
+      throw new Error(`${res.status} ${res.statusText}`);
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
