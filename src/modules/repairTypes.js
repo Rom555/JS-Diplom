@@ -41,7 +41,7 @@ export const repairTypes = () => {
   });
 
   repairNavSlider = slider({
-    sliderWrapperSelector: '.nav-wrap-repair',
+    sliderWrapperSelector: '.repair-types-tab .nav-wrap-repair',
     slidesSelector: '.repair-types-nav__item',
     slideActiveClass: 'repair-slide-active',
     btnNextSelector: '.nav-arrow_right',
@@ -49,5 +49,5 @@ export const repairTypes = () => {
   });
 
   sliderToggle();
-  repairNavSlider.mobile();
+  repairNavSlider.mobile(1024);
 };

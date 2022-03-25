@@ -74,10 +74,10 @@ export const slider = ({
       }
     },
     mobileToggle: function (width) {
-      if (document.documentElement.clientWidth < width && !sliderObj.enable) {
-        sliderObj.init();
-      } else if (document.documentElement.clientWidth > width && sliderObj.enable) {
-        sliderObj.disable();
+      if (document.documentElement.clientWidth < width && !this.enable) {
+        this.init();
+      } else if (document.documentElement.clientWidth > width && this.enable) {
+        this.disable();
       }
     },
     mobile: function (width) {

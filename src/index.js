@@ -9,6 +9,7 @@ import { repairTypes } from './modules/repairTypes';
 import { transparency } from './modules/transparency';
 import { accordion } from './modules/accordion';
 import { sendForm } from './modules/sendForm';
+import { repairPrices } from './modules/repairPrices';
 
 phone();
 menu();
@@ -28,3 +29,4 @@ slider({
 });
 accordion();
 sendForm();
+//repairPrices();
