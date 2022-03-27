@@ -103,7 +103,7 @@ export const slider = ({
     renderSlide: function (number) {
       prevSlide(this.slides, this.currentSlide, slideActiveClass);
 
-      this.currentSlide = number;
+      this.currentSlide = +number;
 
       nextSlide(this.slides, this.currentSlide, slideActiveClass);
 

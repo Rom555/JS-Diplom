@@ -37,6 +37,11 @@ export const modal = () => {
       showPopup(e, '.popup-transparency');
     } else if (e.target.tagName === 'BUTTON' && e.target.textContent.trim() === 'Проконсультироваться') {
       showPopup(e, '.popup-consultation');
+    } else if (
+      e.target.closest('.portfolio-slider-wrap .portfolio-slider__slide-frame') &&
+      !e.target.closest('.slider-arrow-tablet-mobile')
+    ) {
+      showPopup(e, '.popup-portfolio');
     }
   });
 
