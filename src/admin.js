@@ -4,6 +4,7 @@ import { ItemService } from './modules/admin/ItemService';
 import { render } from './modules/admin/render';
 import { dropdown } from './modules/admin/dropdown';
 import { removeItem } from './modules/admin/removeItem';
+import { addItem } from './modules/admin/addItem';
 
 if (/\w*\.html/.exec(document.location.href)[0] === 'index.html') {
   checkCookie()
@@ -37,5 +38,6 @@ if (/\w*\.html/.exec(document.location.href)[0] === 'index.html') {
     .catch((error) => console.log(error.message));
 
   dropdown();
+  addItem();
   removeItem();
 }
