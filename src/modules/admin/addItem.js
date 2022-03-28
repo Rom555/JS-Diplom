@@ -3,6 +3,7 @@ import { render } from './render';
 export const addItem = () => {
   const btn = document.querySelector('.btn-addItem');
   const modal = document.getElementById('modal');
+  const modalHeader = modal.querySelector('.modal__header');
   const form = modal.querySelector('form');
   const typeInput = form.querySelector('#type');
   const nameInput = form.querySelector('#name');
@@ -11,15 +12,14 @@ export const addItem = () => {
 
   btn.addEventListener('click', () => {
     modal.style.display = 'flex';
+    modalHeader.textContent = 'Добавение новой услуги';
   });
 
   modal.addEventListener('click', (e) => {
-    if (e.target.closest('.cancel-button')) {
+    if (e.target.closest('.cancel-button') || e.target.closest('.button__close')) {
       e.preventDefault();
       modal.style.display = '';
       form.reset();
-    } else if (e.target.closest('.button__close')) {
-      modal.style.display = '';
     }
   });
 

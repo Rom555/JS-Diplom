@@ -3,6 +3,7 @@ import { render } from './render';
 export const editItem = () => {
   const tbody = document.getElementById('tbody');
   const modal = document.getElementById('modal');
+  const modalHeader = modal.querySelector('.modal__header');
   const form = modal.querySelector('form');
   const typeInput = form.querySelector('#type');
   const nameInput = form.querySelector('#name');
@@ -14,6 +15,7 @@ export const editItem = () => {
       e.preventDefault();
 
       modal.style.display = 'flex';
+      modalHeader.textContent = 'Редактировать услугу';
 
       const tr = e.target.closest('tr');
       const id = tr.querySelector('.table__id').textContent;
