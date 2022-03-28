@@ -33,6 +33,10 @@ export class ItemService {
     return getData(`${this._url}/${id}`);
   }
 
+  getItemBy(option, value) {
+    return getData(`${this._url}?${option}=${value}`);
+  }
+
   editItem(id, item) {
     return sendData(`${this._url}/${id}`, {
       method: 'PUT',
