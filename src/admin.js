@@ -3,6 +3,7 @@ import { checkCookie } from './modules/admin/checkCookie';
 import { ItemService } from './modules/admin/ItemService';
 import { render } from './modules/admin/render';
 import { dropdown } from './modules/admin/dropdown';
+import { removeItem } from './modules/admin/removeItem';
 
 if (/\w*\.html/.exec(document.location.href)[0] === 'index.html') {
   checkCookie()
@@ -30,10 +31,11 @@ if (/\w*\.html/.exec(document.location.href)[0] === 'index.html') {
 
   itemService
     .getItems()
-    .then((data) => {
-      render(data);
+    .then((items) => {
+      render(items);
     })
     .catch((error) => console.log(error.message));
 
   dropdown();
+  removeItem();
 }

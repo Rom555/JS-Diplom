@@ -7,15 +7,15 @@ export const dropdown = () => {
     if (list.value.trim() === 'Все услуги') {
       itemService
         .getItems()
-        .then((data) => {
-          render(data);
+        .then((items) => {
+          render(items);
         })
         .catch((error) => console.log(error.message));
     } else {
       itemService
         .getItemBy('type', list.value.trim())
-        .then((data) => {
-          render(data);
+        .then((items) => {
+          render(items);
         })
         .catch((error) => console.log(error.message));
     }
@@ -23,12 +23,12 @@ export const dropdown = () => {
 
   itemService
     .getItems()
-    .then((data) => {
+    .then((items) => {
       let types = [];
 
       list.innerHTML = `<option value="Все услуги">Все услуги</option>`;
 
-      data.forEach((item) => {
+      items.forEach((item) => {
         if (!types.includes(item.type)) {
           types.push(item.type);
           list.insertAdjacentHTML('beforeend', `<option value="${item.type}">${item.type}</option>`);
