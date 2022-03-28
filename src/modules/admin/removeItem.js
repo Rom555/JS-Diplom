@@ -1,3 +1,4 @@
+import { clearDropdown } from './dropdown';
 import { render } from './render';
 
 export const removeItem = () => {
@@ -13,6 +14,7 @@ export const removeItem = () => {
       itemService.removeItem(id).then(() => {
         itemService.getItems().then((items) => {
           render(items);
+          clearDropdown();
         });
       });
     }

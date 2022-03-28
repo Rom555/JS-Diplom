@@ -1,3 +1,4 @@
+import { clearDropdown } from './dropdown';
 import { render } from './render';
 
 export const addItem = () => {
@@ -39,6 +40,7 @@ export const addItem = () => {
           render(items);
           form.reset();
           modal.style.display = '';
+          clearDropdown();
         });
       });
     }

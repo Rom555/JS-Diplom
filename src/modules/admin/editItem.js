@@ -1,3 +1,4 @@
+import { clearDropdown } from './dropdown';
 import { render } from './render';
 
 export const editItem = () => {
@@ -50,6 +51,7 @@ export const editItem = () => {
           form.reset();
           form.removeAttribute('data-item');
           modal.style.display = '';
+          clearDropdown();
         });
       });
     }
