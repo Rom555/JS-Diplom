@@ -29,8 +29,6 @@ export const advantages = () => {
   });
 
   itemsMobile.forEach((item) => {
-    item.addEventListener('click', () => {
-      toggleItem(item);
-    });
+    item.classList.add('active-item');
   });
 };
