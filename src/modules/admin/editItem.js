@@ -1,7 +1,7 @@
 import { render } from './render';
 
-export const addItem = () => {
-  const btn = document.querySelector('.btn-addItem');
+export const editItem = () => {
+  const tbody = document.getElementById('tbody');
   const modal = document.getElementById('modal');
   const form = modal.querySelector('form');
   const typeInput = form.querySelector('#type');
@@ -9,24 +9,32 @@ export const addItem = () => {
   const unitsInput = form.querySelector('#units');
   const costInput = form.querySelector('#cost');
 
-  btn.addEventListener('click', () => {
-    modal.style.display = 'flex';
-  });
-
-  modal.addEventListener('click', (e) => {
-    if (e.target.closest('.cancel-button')) {
+  tbody.addEventListener('click', (e) => {
+    if (e.target.closest('.action-change')) {
       e.preventDefault();
-      modal.style.display = '';
-      form.reset();
-    } else if (e.target.closest('.button__close')) {
-      modal.style.display = '';
+
+      modal.style.display = 'flex';
+
+      const tr = e.target.closest('tr');
+      const id = tr.querySelector('.table__id').textContent;
+
+      itemService.getItem(id).then((item) => {
+        typeInput.value = item.type;
+        nameInput.value = item.name;
+        unitsInput.value = item.units;
+        costInput.value = item.cost;
+
+        form.dataset.item = id;
+      });
     }
   });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if (!form.dataset.item) {
+    if (form.dataset.item) {
+      const id = form.dataset.item;
+
       const item = {
         type: typeInput.value,
         name: nameInput.value,
@@ -34,10 +42,11 @@ export const addItem = () => {
         cost: costInput.value,
       };
 
-      itemService.addItem(item).then(() => {
+      itemService.editItem(id, item).then(() => {
         itemService.getItems().then((items) => {
           render(items);
           form.reset();
+          form.removeAttribute('data-item');
           modal.style.display = '';
         });
       });

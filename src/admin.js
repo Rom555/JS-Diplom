@@ -5,6 +5,7 @@ import { render } from './modules/admin/render';
 import { dropdown } from './modules/admin/dropdown';
 import { removeItem } from './modules/admin/removeItem';
 import { addItem } from './modules/admin/addItem';
+import { editItem } from './modules/admin/editItem';
 
 if (/\w*\.html/.exec(document.location.href)[0] === 'index.html') {
   checkCookie()
@@ -39,5 +40,6 @@ if (/\w*\.html/.exec(document.location.href)[0] === 'index.html') {
 
   dropdown();
   addItem();
+  editItem();
   removeItem();
 }
