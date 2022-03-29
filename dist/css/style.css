@@ -8340,7 +8340,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 575px) {
   #reviews-arrow_left {
-    top: 117%;
+    top: 20%;
     left: 55px;
   }
 }
@@ -8352,7 +8352,7 @@ div.wave-block:nth-child(17):after {
 
 @media (max-width: 575px) {
   #reviews-arrow_right {
-    top: 117%;
+    top: 20%;
     right: 55px;
   }
 }
